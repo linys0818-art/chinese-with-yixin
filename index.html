@@ -9,12 +9,11 @@
     :root {
       --blue: #1f6fb2;
       --blue-dark: #123a63;
-      --blue-light: #eef7ff;
       --text: #1f2933;
       --muted: #667085;
       --line: #d9e8f5;
-      --bg: #ffffff;
-      --soft-bg: #f8fcff;
+      --soft: #f7fbff;
+      --white: #ffffff;
     }
 
     * {
@@ -28,77 +27,64 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
+      background: var(--white);
       color: var(--text);
       line-height: 1.7;
     }
 
     .container {
-      max-width: 1060px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 26px;
     }
 
-    .hero {
-      padding: 96px 0 76px;
-      background: linear-gradient(180deg, #f3faff 0%, #ffffff 100%);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .hero-inner {
-      max-width: 760px;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 7px 16px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--blue);
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 22px;
-      background: #ffffff;
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
     }
 
     h1 {
-      margin: 0 0 24px;
-      font-size: 58px;
+      font-size: 52px;
       line-height: 1.08;
-      letter-spacing: -1.6px;
+      letter-spacing: -1.4px;
       color: var(--blue-dark);
+      margin-bottom: 22px;
     }
 
     h2 {
-      margin: 0 0 18px;
-      font-size: 36px;
-      line-height: 1.2;
-      letter-spacing: -0.5px;
+      font-size: 34px;
+      line-height: 1.22;
+      letter-spacing: -0.4px;
       color: var(--blue-dark);
+      margin-bottom: 18px;
     }
 
     h3 {
-      margin: 0 0 10px;
       font-size: 21px;
+      line-height: 1.35;
       color: var(--blue-dark);
+      margin-bottom: 10px;
     }
 
     p {
-      margin: 0 0 16px;
-      font-size: 18px;
+      font-size: 17px;
+      color: var(--muted);
+      margin-bottom: 15px;
     }
 
     .lead {
+      font-size: 19px;
       color: var(--muted);
-      font-size: 20px;
-      max-width: 760px;
+      max-width: 680px;
     }
 
     .button-row {
-      margin-top: 34px;
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
+      margin-top: 30px;
     }
 
     .button {
@@ -108,109 +94,88 @@
       padding: 13px 24px;
       border-radius: 999px;
       border: 1.5px solid var(--blue);
-      background: #ffffff;
+      background: var(--white);
       color: var(--blue);
       text-decoration: none;
-      font-weight: 700;
       font-size: 16px;
+      font-weight: 700;
       transition: all 0.22s ease;
     }
 
     .button:hover {
       background: var(--blue);
-      color: #ffffff;
+      color: var(--white);
       transform: translateY(-2px);
-      box-shadow: 0 12px 26px rgba(31, 111, 178, 0.18);
+      box-shadow: 0 10px 24px rgba(31, 111, 178, 0.18);
+    }
+
+    .hero {
+      padding: 86px 0 72px;
+      background: linear-gradient(180deg, #f6fbff 0%, #ffffff 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .hero-label {
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 18px;
     }
 
     .plans {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-      margin-top: 38px;
-      max-width: 720px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 30px;
+      max-width: 620px;
     }
 
     .plan {
       border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 26px;
-      background: rgba(255, 255, 255, 0.72);
+      border-radius: 18px;
+      padding: 22px 24px;
+      background: rgba(255, 255, 255, 0.78);
     }
 
-    .plan-title {
-      font-size: 19px;
+    .plan-name {
+      font-size: 18px;
       font-weight: 700;
       color: var(--blue-dark);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .price {
-      font-size: 42px;
+      font-size: 38px;
       font-weight: 900;
-      color: var(--blue-dark);
       line-height: 1;
-      margin-bottom: 16px;
+      color: var(--blue-dark);
+      margin-bottom: 14px;
     }
 
     .plan p {
-      color: var(--muted);
-      margin: 0;
+      font-size: 16px;
+      margin-bottom: 0;
     }
 
-    section {
-      padding: 76px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    section:last-of-type {
-      border-bottom: none;
-    }
-
-    .section-head {
-      max-width: 760px;
-      margin-bottom: 42px;
-    }
-
-    .section-head.center {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .intro {
-      max-width: 850px;
-    }
-
-    .intro p {
-      color: var(--muted);
-    }
-
-    .video-section {
-      background: var(--soft-bg);
-    }
-
-    .video-shell {
-      max-width: 780px;
-      margin: 0 auto;
-    }
-
-    .video-note {
-      text-align: center;
-      color: var(--muted);
-      margin-bottom: 24px;
+    .video-box {
+      width: 100%;
     }
 
     .video-wrap {
       width: 100%;
-      max-width: 760px;
-      margin: 0 auto;
       aspect-ratio: 16 / 9;
-      border-radius: 22px;
+      border-radius: 20px;
       overflow: hidden;
       border: 1px solid var(--line);
       background: #000;
-      box-shadow: 0 20px 46px rgba(18, 58, 99, 0.12);
+      box-shadow: 0 18px 40px rgba(18, 58, 99, 0.12);
     }
 
     .video-wrap iframe {
@@ -220,45 +185,69 @@
       display: block;
     }
 
+    .video-caption {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    section {
+      padding: 70px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .section-title p {
+      font-size: 18px;
+    }
+
+    .intro-text {
+      max-width: 850px;
+    }
+
+    .intro-text p {
+      font-size: 18px;
+    }
+
     .benefits {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 34px 44px;
-      margin-top: 12px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 34px 46px;
     }
 
     .benefit {
-      border-top: 2px solid var(--line);
       padding-top: 22px;
+      border-top: 2px solid var(--line);
     }
 
-    .benefit-num {
-      color: var(--blue);
+    .benefit-number {
+      font-size: 14px;
       font-weight: 800;
-      font-size: 15px;
+      color: var(--blue);
       margin-bottom: 8px;
-    }
-
-    .benefit p {
-      color: var(--muted);
     }
 
     .audience {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 46px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 48px;
     }
 
     .audience-block {
+      padding-top: 22px;
       border-top: 2px solid var(--line);
-      padding-top: 24px;
     }
 
     ul {
       margin: 0;
       padding-left: 22px;
-      font-size: 18px;
       color: var(--muted);
+      font-size: 17px;
     }
 
     li {
@@ -267,14 +256,13 @@
 
     .steps {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0;
+      grid-template-columns: repeat(4, 1fr);
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
 
     .step {
-      padding: 28px 22px;
+      padding: 28px 20px;
       border-right: 1px solid var(--line);
     }
 
@@ -284,28 +272,18 @@
 
     .step-number {
       color: var(--blue);
-      font-size: 14px;
       font-weight: 800;
+      font-size: 14px;
       margin-bottom: 10px;
     }
 
     .step h3 {
-      font-size: 19px;
-      margin: 0;
+      font-size: 18px;
+      margin-bottom: 0;
     }
 
     .form-section {
-      background: #ffffff;
-    }
-
-    .form-intro {
-      max-width: 760px;
-      margin: 0 auto 32px;
-      text-align: center;
-    }
-
-    .form-intro p {
-      color: var(--muted);
+      background: var(--soft);
     }
 
     .google-form {
@@ -313,33 +291,30 @@
       height: 980px;
       border: 0;
       display: block;
-      margin: 0 auto;
-      background: #ffffff;
+      background: transparent;
     }
 
     .faq-list {
+      max-width: 920px;
       border-top: 1px solid var(--line);
-      max-width: 900px;
-      margin: 0 auto;
     }
 
     .faq-item {
-      padding: 28px 0;
+      padding: 26px 0;
       border-bottom: 1px solid var(--line);
     }
 
     .faq-item p {
-      color: var(--muted);
       margin-bottom: 0;
     }
 
     .footer-note {
-      padding: 34px 24px;
+      padding: 32px 24px;
       text-align: center;
       font-size: 14px;
       color: var(--muted);
+      background: var(--soft);
       border-top: 1px solid var(--line);
-      background: var(--soft-bg);
     }
 
     .footer-note a {
@@ -351,24 +326,29 @@
       text-decoration: underline;
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 900px) {
       .hero {
-        padding: 66px 0 58px;
+        padding: 62px 0;
       }
 
-      h1 {
-        font-size: 42px;
-      }
-
-      h2 {
-        font-size: 30px;
-      }
-
+      .hero-grid,
       .plans,
       .benefits,
       .audience,
       .steps {
         grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      h2 {
+        font-size: 29px;
+      }
+
+      section {
+        padding: 56px 0;
       }
 
       .step {
@@ -378,14 +358,6 @@
 
       .step:last-child {
         border-bottom: none;
-      }
-
-      section {
-        padding: 58px 0;
-      }
-
-      .video-wrap {
-        border-radius: 18px;
       }
 
       .google-form {
@@ -398,9 +370,9 @@
 <body>
 
   <header class="hero">
-    <div class="container">
-      <div class="hero-inner">
-        <span class="tag">Online 1-on-1 Chinese Lessons</span>
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-label">Online 1-on-1 Chinese Lessons</div>
 
         <h1>Private Chinese Class with Yixin</h1>
 
@@ -411,13 +383,13 @@
 
         <div class="plans">
           <div class="plan">
-            <div class="plan-title">Standard Plan</div>
+            <div class="plan-name">Standard Plan</div>
             <div class="price">$80</div>
             <p>4 weeks · 1 live lesson per week · 50 minutes each lesson</p>
           </div>
 
           <div class="plan">
-            <div class="plan-title">Upgrade Plan</div>
+            <div class="plan-name">Upgrade Plan</div>
             <div class="price">$160</div>
             <p>4 weeks · 2 live lessons per week · 50 minutes each lesson</p>
           </div>
@@ -427,48 +399,8 @@
           <a class="button" href="#consultation">Book a consulting call</a>
         </div>
       </div>
-    </div>
-  </header>
 
-  <main>
-
-    <section>
-      <div class="container intro">
-        <div class="section-head">
-          <span class="tag">About the Class</span>
-          <h2>Personalized Chinese Lessons</h2>
-        </div>
-
-        <p>
-          This course is not a fixed template. Before we begin, I will first understand your current Chinese level,
-          your goals, and the difficulties you are facing right now.
-        </p>
-
-        <p>
-          Based on your situation, I will design a learning plan that fits you. The lessons may include listening and
-          speaking practice, clear explanations, real-life Chinese expressions, review materials, homework, and after-class support.
-        </p>
-
-        <p>
-          My goal is not to make you memorize random phrases, but to help you build a clearer path and keep moving forward.
-        </p>
-
-        <div class="button-row">
-          <a class="button" href="#consultation">Book a consulting call</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="video-section">
-      <div class="container video-shell">
-        <div class="section-head center">
-          <span class="tag">Meet Yixin</span>
-          <h2>Watch My Introduction Video</h2>
-          <p class="video-note">
-            A short introduction to my teaching style and what you can expect from my private Chinese lessons.
-          </p>
-        </div>
-
+      <div class="video-box">
         <div class="video-wrap">
           <iframe
             src="https://www.youtube.com/embed/EHdf2Xn9K-k"
@@ -477,22 +409,55 @@
             allowfullscreen>
           </iframe>
         </div>
+        <div class="video-caption">
+          Watch a short introduction to my teaching style.
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Personalized Chinese Lessons</h2>
+        </div>
+
+        <div class="intro-text">
+          <p>
+            This course is not a fixed template. Before we begin, I will first understand your current Chinese level,
+            your goals, and the difficulties you are facing right now.
+          </p>
+
+          <p>
+            Based on your situation, I will design a learning plan that fits you. The lessons may include listening and
+            speaking practice, clear explanations, real-life Chinese expressions, review materials, homework, and after-class support.
+          </p>
+
+          <p>
+            My goal is not to make you memorize random phrases, but to help you build a clearer path and keep moving forward.
+          </p>
+
+          <div class="button-row">
+            <a class="button" href="#consultation">Book a consulting call</a>
+          </div>
+        </div>
       </div>
     </section>
 
     <section>
       <div class="container">
-        <div class="section-head">
-          <span class="tag">What You Can Get</span>
+        <div class="section-title">
           <h2>What Can You Get from Yixin’s Private Lessons?</h2>
-          <p class="lead">
+          <p>
             The lessons are designed to help you use Chinese more actively, more clearly, and more naturally.
           </p>
         </div>
 
         <div class="benefits">
           <div class="benefit">
-            <div class="benefit-num">01</div>
+            <div class="benefit-number">01</div>
             <h3>Activate Your Chinese Listening and Speaking</h3>
             <p>
               In class, I will use as much Chinese as you can comfortably understand and gradually increase the amount of Chinese input.
@@ -501,7 +466,7 @@
           </div>
 
           <div class="benefit">
-            <div class="benefit-num">02</div>
+            <div class="benefit-number">02</div>
             <h3>A Clear Learning Path</h3>
             <p>
               Language learning needs effort and practice, but clear guidance makes everything easier.
@@ -510,7 +475,7 @@
           </div>
 
           <div class="benefit">
-            <div class="benefit-num">03</div>
+            <div class="benefit-number">03</div>
             <h3>Useful Real-life Chinese</h3>
             <p>
               I don’t want to only teach abstract words that feel far away from real life.
@@ -519,7 +484,7 @@
           </div>
 
           <div class="benefit">
-            <div class="benefit-num">04</div>
+            <div class="benefit-number">04</div>
             <h3>Regular Review and Progress Tracking</h3>
             <p>
               We will review regularly, do small checks, and adjust the lesson pace when needed.
@@ -536,8 +501,7 @@
 
     <section>
       <div class="container">
-        <div class="section-head center">
-          <span class="tag">Is This for You?</span>
+        <div class="section-title">
           <h2>Who Is This Course For?</h2>
         </div>
 
@@ -570,8 +534,7 @@
 
     <section>
       <div class="container">
-        <div class="section-head center">
-          <span class="tag">How It Works</span>
+        <div class="section-title">
           <h2>How It Works</h2>
         </div>
 
@@ -601,8 +564,7 @@
 
     <section class="form-section" id="consultation">
       <div class="container">
-        <div class="form-intro">
-          <span class="tag">Consultation Form</span>
+        <div class="section-title">
           <h2>Book a Consulting Call</h2>
           <p>
             Please fill out this form first. I’ll read your answers and reply by email.
@@ -620,8 +582,7 @@
 
     <section>
       <div class="container">
-        <div class="section-head center">
-          <span class="tag">FAQ</span>
+        <div class="section-title">
           <h2>Frequently Asked Questions</h2>
         </div>
 
