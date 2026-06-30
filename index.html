@@ -4,26 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chinese with Yixin</title>
+
   <style>
     :root {
-      --blue: #1f5f99;
-      --deep-blue: #123a63;
-      --light-blue: #eaf4ff;
-      --soft-blue: #f5faff;
+      --navy: #123a63;
+      --blue: #1f6fb2;
+      --blue-dark: #15558a;
+      --blue-soft: #eaf5ff;
+      --blue-pale: #f6fbff;
       --text: #1f2933;
-      --muted: #5f6f7f;
+      --muted: #64748b;
       --white: #ffffff;
-      --border: #d7e7f7;
+      --border: #d8e9f8;
+      --shadow: 0 18px 45px rgba(18, 58, 99, 0.10);
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--soft-blue);
+      background: var(--blue-pale);
       color: var(--text);
       line-height: 1.7;
     }
@@ -33,53 +40,67 @@
     }
 
     .container {
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    header {
-      background: linear-gradient(135deg, #dff0ff 0%, #ffffff 60%);
-      padding: 72px 0 64px;
+    .section {
+      padding: 82px 0;
       border-bottom: 1px solid var(--border);
     }
 
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 40px;
-      align-items: center;
+    .section.white {
+      background: var(--white);
     }
 
-    .tag {
+    .section.soft {
+      background: var(--blue-pale);
+    }
+
+    .section-title {
+      max-width: 780px;
+      margin-bottom: 34px;
+    }
+
+    .section-title.center {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .eyebrow {
       display: inline-block;
-      background: var(--light-blue);
+      background: var(--blue-soft);
       color: var(--blue);
-      padding: 6px 14px;
+      padding: 7px 15px;
       border-radius: 999px;
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 800;
+      letter-spacing: 0.2px;
       margin-bottom: 18px;
     }
 
     h1 {
-      font-size: 52px;
-      line-height: 1.1;
-      margin: 0 0 20px;
-      color: var(--deep-blue);
+      font-size: 56px;
+      line-height: 1.08;
+      margin: 0 0 22px;
+      color: var(--navy);
+      letter-spacing: -1.5px;
     }
 
     h2 {
-      font-size: 34px;
+      font-size: 36px;
       line-height: 1.2;
-      margin: 0 0 20px;
-      color: var(--deep-blue);
+      margin: 0 0 18px;
+      color: var(--navy);
+      letter-spacing: -0.5px;
     }
 
     h3 {
       font-size: 22px;
       margin: 0 0 10px;
-      color: var(--deep-blue);
+      color: var(--navy);
     }
 
     p {
@@ -87,56 +108,120 @@
       margin: 0 0 16px;
     }
 
-    .hero p {
+    .lead {
       font-size: 20px;
       color: var(--muted);
-      max-width: 680px;
+      max-width: 720px;
     }
 
-    .buttons {
-      margin-top: 30px;
+    .hero {
+      background: linear-gradient(135deg, #e4f3ff 0%, #ffffff 58%, #f4fbff 100%);
+      padding: 84px 0 78px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .button-row {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
+      margin-top: 30px;
     }
 
     .button {
-      display: inline-block;
-      padding: 14px 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 24px;
       border-radius: 999px;
       text-decoration: none;
       background: var(--blue);
       color: white;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 16px;
-      box-shadow: 0 8px 20px rgba(31, 95, 153, 0.18);
+      border: 1px solid var(--blue);
+      box-shadow: 0 12px 26px rgba(31, 111, 178, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
-    .button.secondary {
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--blue-dark);
+      box-shadow: 0 18px 34px rgba(31, 111, 178, 0.26);
+    }
+
+    .button.light {
       background: white;
       color: var(--blue);
-      border: 1px solid var(--blue);
       box-shadow: none;
     }
 
-    .video-card {
-      background: white;
-      border-radius: 24px;
-      padding: 16px;
-      box-shadow: 0 18px 40px rgba(18, 58, 99, 0.12);
-      border: 1px solid var(--border);
+    .button.light:hover {
+      background: var(--blue-soft);
+      color: var(--blue-dark);
+      box-shadow: 0 12px 26px rgba(31, 111, 178, 0.12);
     }
 
-    .video-wrap {
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+      max-width: 650px;
+    }
+
+    .plan-card {
+      background: rgba(234, 245, 255, 0.82);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .plan-card h3 {
+      font-size: 21px;
+      margin-bottom: 14px;
+    }
+
+    .price {
+      font-size: 42px;
+      line-height: 1;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .plan-card p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .video-card {
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto;
+      background: white;
+      padding: 14px;
+      border-radius: 30px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .video-frame {
       position: relative;
       width: 100%;
-      padding-bottom: 56.25%;
-      border-radius: 18px;
+      aspect-ratio: 9 / 16;
+      border-radius: 22px;
       overflow: hidden;
-      background: #d9eaf7;
+      background: #dbeafe;
     }
 
-    .video-wrap iframe {
+    .video-frame iframe {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -144,43 +229,57 @@
       border: 0;
     }
 
-    section {
-      padding: 64px 0;
-    }
-
-    .card {
-      background: white;
+    .intro-card {
+      background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 34px;
-      box-shadow: 0 12px 30px rgba(18, 58, 99, 0.07);
-      margin-bottom: 22px;
+      border-radius: 28px;
+      padding: 40px;
+      box-shadow: var(--shadow);
     }
 
-    .grid {
+    .benefit-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 22px;
     }
 
-    .benefit {
+    .benefit-card {
       background: white;
       border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 28px;
+      border-radius: 26px;
+      padding: 30px;
+      box-shadow: 0 10px 28px rgba(18, 58, 99, 0.06);
     }
 
     .benefit-number {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--light-blue);
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: var(--blue-soft);
       color: var(--blue);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      margin-bottom: 14px;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .audience-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 36px;
+      box-shadow: 0 10px 28px rgba(18, 58, 99, 0.06);
+    }
+
+    .audience-card.not-for {
+      background: #f8fbff;
     }
 
     ul {
@@ -190,98 +289,143 @@
     }
 
     li {
+      margin-bottom: 12px;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .step {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 170px;
+    }
+
+    .step strong {
+      display: block;
+      color: var(--blue);
+      font-size: 14px;
       margin-bottom: 10px;
     }
 
-    .pricing {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-      margin-top: 24px;
+    .step p {
+      font-size: 16px;
+      margin: 0;
+      color: var(--muted);
     }
 
-    .price-card {
-      background: var(--light-blue);
+    .form-wrap {
+      background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 28px;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
-    .price {
-      font-size: 36px;
-      color: var(--deep-blue);
-      font-weight: 800;
-      margin: 12px 0;
+    .form-note {
+      padding: 30px 34px 12px;
+      background: linear-gradient(135deg, #eaf5ff 0%, #ffffff 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .form-note p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .google-form {
+      width: 100%;
+      height: 980px;
+      border: 0;
+      display: block;
+      background: white;
+    }
+
+    .faq-list {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 8px 34px;
+      box-shadow: var(--shadow);
     }
 
     .faq-item {
-      border-top: 1px solid var(--border);
-      padding: 24px 0;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    .faq-item:first-child {
-      border-top: none;
+    .faq-item:last-child {
+      border-bottom: none;
     }
 
-    .cta {
-      background: var(--deep-blue);
-      color: white;
-      border-radius: 28px;
-      padding: 46px;
-      text-align: center;
-    }
-
-    .cta h2 {
-      color: white;
-    }
-
-    .cta p {
-      color: #dceeff;
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cta .button {
-      background: white;
-      color: var(--deep-blue);
-      box-shadow: none;
-    }
-
-    footer {
-      padding: 36px 0;
-      text-align: center;
+    .faq-item p {
       color: var(--muted);
-      font-size: 15px;
+      margin-bottom: 0;
     }
 
-    @media (max-width: 800px) {
-      .hero,
-      .grid,
-      .pricing {
+    .final-note {
+      text-align: center;
+      padding: 38px 24px;
+      font-size: 14px;
+      color: var(--muted);
+      background: var(--white);
+    }
+
+    .final-note a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    .final-note a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .benefit-grid,
+      .audience-grid,
+      .plans {
+        grid-template-columns: 1fr;
+      }
+
+      .process {
         grid-template-columns: 1fr;
       }
 
       h1 {
-        font-size: 40px;
+        font-size: 42px;
       }
 
       h2 {
-        font-size: 28px;
+        font-size: 30px;
       }
 
-      header {
-        padding: 52px 0;
+      .hero {
+        padding: 58px 0;
       }
 
-      section {
-        padding: 46px 0;
+      .section {
+        padding: 56px 0;
       }
 
-      .card,
-      .benefit,
-      .cta {
-        padding: 26px;
+      .intro-card,
+      .audience-card,
+      .benefit-card {
+        padding: 28px;
+      }
+
+      .video-card {
+        max-width: 300px;
+      }
+
+      .google-form {
+        height: 1050px;
       }
     }
   </style>
@@ -289,44 +433,41 @@
 
 <body>
 
-  <header>
-    <div class="container hero">
+  <header class="hero">
+    <div class="container hero-grid">
       <div>
-        <span class="tag">Online 1-on-1 Chinese Lessons</span>
+        <span class="eyebrow">Online 1-on-1 Chinese Lessons</span>
         <h1>Private Chinese Class with Yixin</h1>
-        <p>
+        <p class="lead">
           Personalized online Chinese lessons designed around your level, goals, and current learning problems.
           From making a learning plan to seeing real progress, I’ll be there with you step by step.
         </p>
 
-        <div class="pricing">
-          <div class="price-card">
+        <div class="plans">
+          <div class="plan-card">
             <h3>Standard Plan</h3>
             <div class="price">$80</div>
             <p>4 weeks · 1 live lesson per week · 50 minutes each lesson</p>
           </div>
-          <div class="price-card">
+
+          <div class="plan-card">
             <h3>Upgrade Plan</h3>
             <div class="price">$160</div>
             <p>4 weeks · 2 live lessons per week · 50 minutes each lesson</p>
           </div>
         </div>
 
-        <div class="buttons">
-          <a class="button" href="https://forms.gle/NrWvfhgoNsR1sJMC7" target="_blank">
-            Request a Free Consultation
-          </a>
-          <a class="button secondary" href="mailto:linys0818@gmail.com">
-            Email Yixin
-          </a>
+        <div class="button-row">
+          <a class="button" href="#consultation">Book a consulting call</a>
         </div>
       </div>
 
       <div class="video-card">
-        <div class="video-wrap">
+        <div class="video-frame">
           <iframe
             src="https://www.youtube.com/embed/EHdf2Xn9K-k"
             title="Yixin Introduction Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
         </div>
@@ -336,32 +477,42 @@
 
   <main>
 
-    <section>
+    <section class="section white">
       <div class="container">
-        <div class="card">
+        <div class="intro-card">
+          <span class="eyebrow">About the Class</span>
           <h2>Personalized Chinese Lessons</h2>
           <p>
             This course is not a fixed template. Before we begin, I will first understand your current Chinese level,
             your goals, and the difficulties you are facing right now.
           </p>
           <p>
-            Based on your situation, I will design a learning plan that fits you. The lessons may include listening and speaking practice,
-            clear explanations, real-life Chinese expressions, review materials, homework, and after-class support.
+            Based on your situation, I will design a learning plan that fits you. The lessons may include listening and
+            speaking practice, clear explanations, real-life Chinese expressions, review materials, homework, and after-class support.
           </p>
           <p>
             My goal is not to make you memorize random phrases, but to help you build a clearer path and keep moving forward.
           </p>
+
+          <div class="button-row">
+            <a class="button light" href="#consultation">Book a consulting call</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section>
+    <section class="section soft">
       <div class="container">
-        <h2>What Can You Get from Yixin’s Private Lessons?</h2>
+        <div class="section-title">
+          <span class="eyebrow">What You Can Get</span>
+          <h2>What Can You Get from Yixin’s Private Lessons?</h2>
+          <p class="lead">
+            The lessons are designed to help you use Chinese more actively, more clearly, and more naturally.
+          </p>
+        </div>
 
-        <div class="grid">
-
-          <div class="benefit">
+        <div class="benefit-grid">
+          <div class="benefit-card">
             <div class="benefit-number">1</div>
             <h3>Activate Your Chinese Listening and Speaking</h3>
             <p>
@@ -370,7 +521,7 @@
             </p>
           </div>
 
-          <div class="benefit">
+          <div class="benefit-card">
             <div class="benefit-number">2</div>
             <h3>A Clear Learning Path</h3>
             <p>
@@ -379,7 +530,7 @@
             </p>
           </div>
 
-          <div class="benefit">
+          <div class="benefit-card">
             <div class="benefit-number">3</div>
             <h3>Useful Real-life Chinese</h3>
             <p>
@@ -388,7 +539,7 @@
             </p>
           </div>
 
-          <div class="benefit">
+          <div class="benefit-card">
             <div class="benefit-number">4</div>
             <h3>Regular Review and Progress Tracking</h3>
             <p>
@@ -396,61 +547,129 @@
               This helps you avoid learning and forgetting at the same time, and keeps your progress steady.
             </p>
           </div>
-
         </div>
 
-        <div class="buttons">
-          <a class="button" href="https://forms.gle/NrWvfhgoNsR1sJMC7" target="_blank">
-            Request a Free Consultation
-          </a>
+        <div class="button-row">
+          <a class="button" href="#consultation">Book a consulting call</a>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="container grid">
-        <div class="card">
+    <section class="section white">
+      <div class="container">
+        <div class="section-title center">
+          <span class="eyebrow">Is This for You?</span>
           <h2>Who Is This Course For?</h2>
-          <ul>
-            <li>Learners who have a long-term goal and are willing to spend time learning Chinese.</li>
-            <li>Students who want to activate their listening and speaking ability in class.</li>
-            <li>Learners who feel lost and need a personalized learning plan.</li>
-            <li>People who want to understand real Chinese society, daily life, culture, and ways of thinking.</li>
-          </ul>
         </div>
 
-        <div class="card">
-          <h2>Who Is This Not For?</h2>
-          <ul>
-            <li>Learners who want to reach a level far beyond their current ability in a very short time.</li>
-            <li>People who are only casually looking around and are not sure whether they want to learn a new language.</li>
-            <li>Students who only care about exams and do not want to learn anything outside the test.</li>
-          </ul>
+        <div class="audience-grid">
+          <div class="audience-card">
+            <h3>This course is for learners who...</h3>
+            <ul>
+              <li>Have a long-term goal and are willing to spend time learning Chinese.</li>
+              <li>Want to activate listening and speaking in class.</li>
+              <li>Feel lost and need a personalized learning plan.</li>
+              <li>Want to understand real Chinese society, daily life, culture, and ways of thinking.</li>
+            </ul>
+          </div>
+
+          <div class="audience-card not-for">
+            <h3>This course may not be for learners who...</h3>
+            <ul>
+              <li>Want to reach a level far beyond their current ability in a very short time.</li>
+              <li>Are only casually looking around and are not sure whether they want to learn a new language.</li>
+              <li>Only care about exams and do not want to learn anything outside the test.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <a class="button" href="#consultation">Book a consulting call</a>
         </div>
       </div>
     </section>
 
-    <section>
+    <section class="section soft">
       <div class="container">
-        <div class="cta">
-          <h2>Interested in learning Chinese with me?</h2>
-          <p>
-            Fill out the consultation form first. I’ll read your answers and reply by email.
-            If my lessons are a good fit for your goals, we can arrange a short consultation call.
+        <div class="section-title center">
+          <span class="eyebrow">How It Works</span>
+          <h2>From Consultation to Lessons</h2>
+          <p class="lead">
+            Before starting lessons, I want to understand your level, goals, and whether this course is a good fit for you.
           </p>
-          <a class="button" href="https://forms.gle/NrWvfhgoNsR1sJMC7" target="_blank">
-            Fill Out the Consultation Form
-          </a>
+        </div>
+
+        <div class="process">
+          <div class="step">
+            <strong>Step 1</strong>
+            <h3>Fill out the form</h3>
+            <p>Tell me about your Chinese level, learning goals, and current problems.</p>
+          </div>
+
+          <div class="step">
+            <strong>Step 2</strong>
+            <h3>I read your answers</h3>
+            <p>I will check whether my lessons may be suitable for your needs.</p>
+          </div>
+
+          <div class="step">
+            <strong>Step 3</strong>
+            <h3>Consulting call</h3>
+            <p>If we are a good fit, we can arrange a short consulting call.</p>
+          </div>
+
+          <div class="step">
+            <strong>Step 4</strong>
+            <h3>Start the first cycle</h3>
+            <p>You can start with a 4-week personalized learning cycle.</p>
+          </div>
+
+          <div class="step">
+            <strong>Step 5</strong>
+            <h3>Review and adjust</h3>
+            <p>We review your progress and adjust the lesson plan when needed.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section>
+    <section class="section white" id="consultation">
       <div class="container">
-        <h2>FAQ</h2>
+        <div class="section-title center">
+          <span class="eyebrow">Consultation Form</span>
+          <h2>Book a Consulting Call</h2>
+          <p class="lead">
+            Please fill out this form first. I’ll read your answers and reply by email.
+            If my lessons are a good fit for your goals, we can arrange a short consulting call.
+          </p>
+        </div>
 
-        <div class="card">
+        <div class="form-wrap">
+          <div class="form-note">
+            <h3>Tell me about your Chinese learning</h3>
+            <p>
+              This form helps me understand your level and goals before we talk.
+              Please make sure your email address is correct.
+            </p>
+          </div>
 
+          <iframe
+            class="google-form"
+            src="https://forms.gle/NrWvfhgoNsR1sJMC7">
+            Loading…
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="container">
+        <div class="section-title center">
+          <span class="eyebrow">FAQ</span>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-list">
           <div class="faq-item">
             <h3>How long is one course cycle?</h3>
             <p>
@@ -480,11 +699,8 @@
             <h3>Can short-term learners join?</h3>
             <p>
               It depends. If you only want to try a few random lessons without a clear goal or learning intention,
-              this course may not be the best fit.
-            </p>
-            <p>
-              But if you have a clear short-term goal, such as traveling to China in six months or preparing for an HSK exam in three months,
-              and your current level matches the goal after evaluation, you are welcome to contact me.
+              this course may not be the best fit. But if you have a clear short-term goal, such as traveling to China in six months
+              or preparing for an HSK exam in three months, you are welcome to contact me.
             </p>
           </div>
 
@@ -503,24 +719,16 @@
               and support for questions during the learning process.
             </p>
           </div>
-
-          <div class="faq-item">
-            <h3>How can I contact Yixin?</h3>
-            <p>
-              You can fill out the consultation form, or email me directly at
-              <a href="mailto:linys0818@gmail.com">linys0818@gmail.com</a>.
-            </p>
-          </div>
-
         </div>
       </div>
     </section>
 
   </main>
 
-  <footer>
-    Chinese with Yixin · Personalized online Chinese lessons · linys0818@gmail.com
-  </footer>
+  <div class="final-note">
+    Questions about private Chinese lessons? You can reach Yixin at
+    <a href="mailto:linys0818@gmail.com">linys0818@gmail.com</a>.
+  </div>
 
 </body>
 </html>
