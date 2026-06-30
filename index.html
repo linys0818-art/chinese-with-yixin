@@ -33,7 +33,7 @@
     }
 
     .container {
-      max-width: 1180px;
+      max-width: 1240px;
       margin: 0 auto;
       padding: 0 26px;
     }
@@ -46,11 +46,11 @@
     }
 
     h1 {
-      font-size: 46px;
+      font-size: 45px;
       line-height: 1.08;
       letter-spacing: -1.4px;
       color: var(--blue-dark);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       white-space: nowrap;
     }
 
@@ -76,16 +76,16 @@
     }
 
     .lead {
-      font-size: 18px;
+      font-size: 17px;
       color: var(--muted);
-      max-width: 560px;
+      max-width: 520px;
     }
 
     .button-row {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 28px;
+      margin-top: 26px;
     }
 
     .button {
@@ -111,15 +111,15 @@
     }
 
     .hero {
-      padding: 82px 0 72px;
+      padding: 78px 0 70px;
       background: linear-gradient(180deg, #f6fbff 0%, #ffffff 100%);
       border-bottom: 1px solid var(--line);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 50px;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 46px;
       align-items: center;
     }
 
@@ -127,49 +127,51 @@
       color: var(--blue);
       font-weight: 700;
       font-size: 15px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .plans {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 12px;
-      margin-top: 26px;
-      max-width: 540px;
+      gap: 10px;
+      margin-top: 24px;
+      max-width: 500px;
     }
 
     .plan {
       border: 1px solid var(--line);
       border-radius: 16px;
-      padding: 17px 20px;
+      padding: 16px 18px;
       background: rgba(255, 255, 255, 0.78);
     }
 
-    .plan-top {
+    .plan-line {
       display: flex;
-      align-items: baseline;
       justify-content: space-between;
+      align-items: baseline;
       gap: 16px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
+      white-space: nowrap;
     }
 
     .plan-name {
-      font-size: 18px;
-      font-weight: 700;
+      font-size: 17px;
+      font-weight: 800;
       color: var(--blue-dark);
     }
 
     .price {
-      font-size: 32px;
+      font-size: 30px;
       font-weight: 900;
-      line-height: 1;
       color: var(--blue-dark);
+      line-height: 1;
       white-space: nowrap;
     }
 
     .plan p {
-      font-size: 14.5px;
+      font-size: 15px;
       margin-bottom: 0;
+      color: var(--muted);
       white-space: nowrap;
     }
 
@@ -370,6 +372,7 @@
         padding: 56px 0;
       }
 
+      .plan-line,
       .plan p {
         white-space: normal;
       }
@@ -406,19 +409,19 @@
 
         <div class="plans">
           <div class="plan">
-            <div class="plan-top">
-              <div class="plan-name">Standard Plan</div>
+            <div class="plan-line">
+              <div class="plan-name">Standard Plan · 4 weeks</div>
               <div class="price">$80</div>
             </div>
-            <p>4 weeks · 1 live lesson per week · 50 minutes each lesson</p>
+            <p>one 50mins live lesson per week</p>
           </div>
 
           <div class="plan">
-            <div class="plan-top">
-              <div class="plan-name">Upgrade Plan</div>
+            <div class="plan-line">
+              <div class="plan-name">Upgrade Plan · 4 weeks</div>
               <div class="price">$160</div>
             </div>
-            <p>4 weeks · 2 live lessons per week · 50 minutes each lesson</p>
+            <p>two 50mins live lessons per week</p>
           </div>
         </div>
 
