@@ -33,7 +33,7 @@
     }
 
     .container {
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 0 26px;
     }
@@ -46,11 +46,11 @@
     }
 
     h1 {
-      font-size: 52px;
+      font-size: 50px;
       line-height: 1.08;
       letter-spacing: -1.4px;
       color: var(--blue-dark);
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     h2 {
@@ -75,23 +75,23 @@
     }
 
     .lead {
-      font-size: 19px;
+      font-size: 18px;
       color: var(--muted);
-      max-width: 680px;
+      max-width: 560px;
     }
 
     .button-row {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 30px;
+      margin-top: 28px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 13px 24px;
+      padding: 12px 22px;
       border-radius: 999px;
       border: 1.5px solid var(--blue);
       background: var(--white);
@@ -110,15 +110,15 @@
     }
 
     .hero {
-      padding: 86px 0 72px;
+      padding: 82px 0 72px;
       background: linear-gradient(180deg, #f6fbff 0%, #ffffff 100%);
       border-bottom: 1px solid var(--line);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 46px;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 50px;
       align-items: center;
     }
 
@@ -126,41 +126,48 @@
       color: var(--blue);
       font-weight: 700;
       font-size: 15px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .plans {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-top: 30px;
-      max-width: 620px;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 26px;
+      max-width: 480px;
     }
 
     .plan {
       border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 22px 24px;
+      border-radius: 16px;
+      padding: 18px 20px;
       background: rgba(255, 255, 255, 0.78);
+    }
+
+    .plan-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 8px;
     }
 
     .plan-name {
       font-size: 18px;
       font-weight: 700;
       color: var(--blue-dark);
-      margin-bottom: 10px;
     }
 
     .price {
-      font-size: 38px;
+      font-size: 32px;
       font-weight: 900;
       line-height: 1;
       color: var(--blue-dark);
-      margin-bottom: 14px;
+      white-space: nowrap;
     }
 
     .plan p {
-      font-size: 16px;
+      font-size: 15.5px;
       margin-bottom: 0;
     }
 
@@ -332,7 +339,6 @@
       }
 
       .hero-grid,
-      .plans,
       .benefits,
       .audience,
       .steps {
@@ -383,14 +389,18 @@
 
         <div class="plans">
           <div class="plan">
-            <div class="plan-name">Standard Plan</div>
-            <div class="price">$80</div>
+            <div class="plan-top">
+              <div class="plan-name">Standard Plan</div>
+              <div class="price">$80</div>
+            </div>
             <p>4 weeks · 1 live lesson per week · 50 minutes each lesson</p>
           </div>
 
           <div class="plan">
-            <div class="plan-name">Upgrade Plan</div>
-            <div class="price">$160</div>
+            <div class="plan-top">
+              <div class="plan-name">Upgrade Plan</div>
+              <div class="price">$160</div>
+            </div>
             <p>4 weeks · 2 live lessons per week · 50 minutes each lesson</p>
           </div>
         </div>
@@ -403,14 +413,20 @@
       <div class="video-box">
         <div class="video-wrap">
           <iframe
-            src="https://www.youtube.com/embed/EHdf2Xn9K-k"
+            src="https://www.youtube.com/embed/EHdf2Xn9K-k?rel=0&modestbranding=1"
             title="Yixin Introduction Video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen>
           </iframe>
         </div>
+
         <div class="video-caption">
           Watch a short introduction to my teaching style.
+          <br />
+          <a href="https://youtu.be/EHdf2Xn9K-k?si=e9iJXixRfn4hZrCo" target="_blank" style="color:#1f6fb2; text-decoration:none;">
+            Watch on YouTube
+          </a>
         </div>
       </div>
     </div>
