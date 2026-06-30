@@ -5,148 +5,522 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chinese with Yixin</title>
   <style>
+    :root {
+      --blue: #1f5f99;
+      --deep-blue: #123a63;
+      --light-blue: #eaf4ff;
+      --soft-blue: #f5faff;
+      --text: #1f2933;
+      --muted: #5f6f7f;
+      --white: #ffffff;
+      --border: #d7e7f7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #fffaf5;
-      color: #2b2b2b;
       margin: 0;
-      padding: 0;
-      line-height: 1.6;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--soft-blue);
+      color: var(--text);
+      line-height: 1.7;
     }
+
+    a {
+      color: inherit;
+    }
+
     .container {
-      max-width: 850px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 60px 24px;
+      padding: 0 24px;
     }
+
+    header {
+      background: linear-gradient(135deg, #dff0ff 0%, #ffffff 60%);
+      padding: 72px 0 64px;
+      border-bottom: 1px solid var(--border);
+    }
+
     .hero {
-      text-align: center;
-      padding: 60px 0;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
     }
+
+    .tag {
+      display: inline-block;
+      background: var(--light-blue);
+      color: var(--blue);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
     h1 {
-      font-size: 42px;
-      margin-bottom: 16px;
+      font-size: 52px;
+      line-height: 1.1;
+      margin: 0 0 20px;
+      color: var(--deep-blue);
     }
+
     h2 {
-      margin-top: 48px;
-      font-size: 26px;
+      font-size: 34px;
+      line-height: 1.2;
+      margin: 0 0 20px;
+      color: var(--deep-blue);
     }
+
+    h3 {
+      font-size: 22px;
+      margin: 0 0 10px;
+      color: var(--deep-blue);
+    }
+
     p {
       font-size: 18px;
+      margin: 0 0 16px;
     }
-    .subtitle {
+
+    .hero p {
       font-size: 20px;
-      color: #555;
+      color: var(--muted);
       max-width: 680px;
-      margin: 0 auto 32px;
     }
+
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
     .button {
       display: inline-block;
-      margin: 8px;
       padding: 14px 22px;
-      background: #2b2b2b;
-      color: white;
-      text-decoration: none;
       border-radius: 999px;
+      text-decoration: none;
+      background: var(--blue);
+      color: white;
+      font-weight: 700;
       font-size: 16px;
+      box-shadow: 0 8px 20px rgba(31, 95, 153, 0.18);
     }
+
     .button.secondary {
-      background: #ffffff;
-      color: #2b2b2b;
-      border: 1px solid #2b2b2b;
+      background: white;
+      color: var(--blue);
+      border: 1px solid var(--blue);
+      box-shadow: none;
     }
+
+    .video-card {
+      background: white;
+      border-radius: 24px;
+      padding: 16px;
+      box-shadow: 0 18px 40px rgba(18, 58, 99, 0.12);
+      border: 1px solid var(--border);
+    }
+
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #d9eaf7;
+    }
+
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    section {
+      padding: 64px 0;
+    }
+
     .card {
       background: white;
-      padding: 28px;
-      border-radius: 20px;
-      margin: 20px 0;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 34px;
+      box-shadow: 0 12px 30px rgba(18, 58, 99, 0.07);
+      margin-bottom: 22px;
     }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .benefit {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 28px;
+    }
+
+    .benefit-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--light-blue);
+      color: var(--blue);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
     ul {
+      margin: 0;
+      padding-left: 22px;
       font-size: 18px;
     }
-    footer {
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .price-card {
+      background: var(--light-blue);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 28px;
+    }
+
+    .price {
+      font-size: 36px;
+      color: var(--deep-blue);
+      font-weight: 800;
+      margin: 12px 0;
+    }
+
+    .faq-item {
+      border-top: 1px solid var(--border);
+      padding: 24px 0;
+    }
+
+    .faq-item:first-child {
+      border-top: none;
+    }
+
+    .cta {
+      background: var(--deep-blue);
+      color: white;
+      border-radius: 28px;
+      padding: 46px;
       text-align: center;
-      color: #777;
-      margin-top: 60px;
-      font-size: 14px;
+    }
+
+    .cta h2 {
+      color: white;
+    }
+
+    .cta p {
+      color: #dceeff;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta .button {
+      background: white;
+      color: var(--deep-blue);
+      box-shadow: none;
+    }
+
+    footer {
+      padding: 36px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    @media (max-width: 800px) {
+      .hero,
+      .grid,
+      .pricing {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      header {
+        padding: 52px 0;
+      }
+
+      section {
+        padding: 46px 0;
+      }
+
+      .card,
+      .benefit,
+      .cta {
+        padding: 26px;
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
 
-    <section class="hero">
-      <h1>Chinese with Yixin</h1>
-      <p class="subtitle">
-        Personalized Chinese lessons for long-term learners.
-        Learn real-life Chinese with clear explanations, guided speaking practice, and a plan based on your goals.
-      </p>
-      <a class="button" href="#" target="_blank">Book a Free Fit Check Call</a>
-      <a class="button secondary" href="#" target="_blank">Book on Preply</a>
+  <header>
+    <div class="container hero">
+      <div>
+        <span class="tag">Online 1-on-1 Chinese Lessons</span>
+        <h1>Private Chinese Class with Yixin</h1>
+        <p>
+          Personalized online Chinese lessons designed around your level, goals, and current learning problems.
+          From making a learning plan to seeing real progress, I’ll be there with you step by step.
+        </p>
+
+        <div class="pricing">
+          <div class="price-card">
+            <h3>Standard Plan</h3>
+            <div class="price">$80</div>
+            <p>4 weeks · 1 live lesson per week · 50 minutes each lesson</p>
+          </div>
+          <div class="price-card">
+            <h3>Upgrade Plan</h3>
+            <div class="price">$160</div>
+            <p>4 weeks · 2 live lessons per week · 50 minutes each lesson</p>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <a class="button" href="https://forms.gle/NrWvfhgoNsR1sJMC7" target="_blank">
+            Request a Free Consultation
+          </a>
+          <a class="button secondary" href="mailto:linys0818@gmail.com">
+            Email Yixin
+          </a>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/EHdf2Xn9K-k"
+            title="Yixin Introduction Video"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section>
+      <div class="container">
+        <div class="card">
+          <h2>Personalized Chinese Lessons</h2>
+          <p>
+            This course is not a fixed template. Before we begin, I will first understand your current Chinese level,
+            your goals, and the difficulties you are facing right now.
+          </p>
+          <p>
+            Based on your situation, I will design a learning plan that fits you. The lessons may include listening and speaking practice,
+            clear explanations, real-life Chinese expressions, review materials, homework, and after-class support.
+          </p>
+          <p>
+            My goal is not to make you memorize random phrases, but to help you build a clearer path and keep moving forward.
+          </p>
+        </div>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>Hi, I’m Yixin</h2>
-      <p>
-        I help beginner and lower-intermediate Chinese learners understand Chinese more clearly
-        and use it more naturally in real life.
-      </p>
-      <p>
-        My lessons are not just about memorizing phrases. We will work on your actual learning problems,
-        such as sentence building, speaking confidence, grammar clarity, pronunciation, and real-life expressions.
-      </p>
+    <section>
+      <div class="container">
+        <h2>What Can You Get from Yixin’s Private Lessons?</h2>
+
+        <div class="grid">
+
+          <div class="benefit">
+            <div class="benefit-number">1</div>
+            <h3>Activate Your Chinese Listening and Speaking</h3>
+            <p>
+              In class, I will use as much Chinese as you can comfortably understand and gradually increase the amount of Chinese input.
+              You will also be encouraged to express your own ideas in Chinese, so your speaking ability can grow through real use.
+            </p>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-number">2</div>
+            <h3>A Clear Learning Path</h3>
+            <p>
+              Language learning needs effort and practice, but clear guidance makes everything easier.
+              Each lesson has a clear goal, topic-based practice, structured output, and review materials, so you won’t feel lost.
+            </p>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-number">3</div>
+            <h3>Useful Real-life Chinese</h3>
+            <p>
+              I don’t want to only teach abstract words that feel far away from real life.
+              We will learn expressions, dialogues, social topics, and situations that are common in Chinese life and society.
+            </p>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-number">4</div>
+            <h3>Regular Review and Progress Tracking</h3>
+            <p>
+              We will review regularly, do small checks, and adjust the lesson pace when needed.
+              This helps you avoid learning and forgetting at the same time, and keeps your progress steady.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="buttons">
+          <a class="button" href="https://forms.gle/NrWvfhgoNsR1sJMC7" target="_blank">
+            Request a Free Consultation
+          </a>
+        </div>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>My Teaching Philosophy</h2>
-      <p>
-        I don’t believe one single method works for every Chinese learner.
-        Some students need more comprehensible input. Some need clear grammar explanations.
-        Some need speaking practice and corrections.
-      </p>
-      <p>
-        That’s why my lessons are personalized. I usually combine clear explanations, real-life examples,
-        guided speaking practice, and personalized corrections.
-      </p>
+    <section>
+      <div class="container grid">
+        <div class="card">
+          <h2>Who Is This Course For?</h2>
+          <ul>
+            <li>Learners who have a long-term goal and are willing to spend time learning Chinese.</li>
+            <li>Students who want to activate their listening and speaking ability in class.</li>
+            <li>Learners who feel lost and need a personalized learning plan.</li>
+            <li>People who want to understand real Chinese society, daily life, culture, and ways of thinking.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Who Is This Not For?</h2>
+          <ul>
+            <li>Learners who want to reach a level far beyond their current ability in a very short time.</li>
+            <li>People who are only casually looking around and are not sure whether they want to learn a new language.</li>
+            <li>Students who only care about exams and do not want to learn anything outside the test.</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>Who This Is For</h2>
-      <ul>
-        <li>Beginners and lower-intermediate learners</li>
-        <li>Learners who want to speak more natural Chinese</li>
-        <li>Students who need clear English explanations</li>
-        <li>Long-term learners who want steady progress</li>
-        <li>People who want to understand real-life Chinese, not only textbook Chinese</li>
-      </ul>
+    <section>
+      <div class="container">
+        <div class="cta">
+          <h2>Interested in learning Chinese with me?</h2>
+          <p>
+            Fill out the consultation form first. I’ll read your answers and reply by email.
+            If my lessons are a good fit for your goals, we can arrange a short consultation call.
+          </p>
+          <a class="button" href="https://forms.gle/NrWvfhgoNsR1sJMC7" target="_blank">
+            Fill Out the Consultation Form
+          </a>
+        </div>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>How It Works</h2>
-      <ul>
-        <li>Step 1: Book a free 10–15 minute fit check call.</li>
-        <li>Step 2: We talk about your level, goals, and learning problems.</li>
-        <li>Step 3: If we are a good fit, we start with a personalized starter package.</li>
-        <li>Step 4: After the first lesson, if it is not a good fit, the remaining lessons can be refunded.</li>
-      </ul>
+    <section>
+      <div class="container">
+        <h2>FAQ</h2>
+
+        <div class="card">
+
+          <div class="faq-item">
+            <h3>How long is one course cycle?</h3>
+            <p>
+              One cycle lasts 4 weeks. Each week includes at least one 50-minute live lesson.
+              I recommend a steady and consistent learning rhythm.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>How many cycles do I need to reach my goal?</h3>
+            <p>
+              It depends on your current level and your goal. We need to talk first before I can give a realistic suggestion.
+              In general, reaching a meaningful goal usually takes at least 4 cycles. Language learning is a long-term process,
+              and big changes are hard to achieve in a very short time.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Can complete beginners join?</h3>
+            <p>
+              Yes. Complete beginners are welcome. I can help you build a strong foundation and learn to form Chinese sentences
+              with a Chinese way of thinking, instead of creating confusing sentence structures from the beginning.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Can short-term learners join?</h3>
+            <p>
+              It depends. If you only want to try a few random lessons without a clear goal or learning intention,
+              this course may not be the best fit.
+            </p>
+            <p>
+              But if you have a clear short-term goal, such as traveling to China in six months or preparing for an HSK exam in three months,
+              and your current level matches the goal after evaluation, you are welcome to contact me.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Can I get a refund if the lesson pace is not suitable for me?</h3>
+            <p>
+              Yes. After the first lesson, if you feel the course is not a good fit, I can refund the remaining lessons in the current cycle.
+              Starting from the second lesson, the remaining lessons in that cycle are non-refundable.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>What is included in the course service?</h3>
+            <p>
+              In general, the service includes a personalized learning plan, weekly live lessons, after-class review materials,
+              and support for questions during the learning process.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>How can I contact Yixin?</h3>
+            <p>
+              You can fill out the consultation form, or email me directly at
+              <a href="mailto:linys0818@gmail.com">linys0818@gmail.com</a>.
+            </p>
+          </div>
+
+        </div>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>Lessons May Focus On</h2>
-      <ul>
-        <li>Real-life Chinese expressions</li>
-        <li>Sentence building</li>
-        <li>Speaking practice</li>
-        <li>Grammar clarity</li>
-        <li>Pronunciation and tones</li>
-        <li>Personalized corrections and lesson notes</li>
-      </ul>
-    </section>
+  </main>
 
-    <footer>
-      Chinese with Yixin · Personalized Chinese lessons
-    </footer>
+  <footer>
+    Chinese with Yixin · Personalized online Chinese lessons · linys0818@gmail.com
+  </footer>
 
-  </div>
 </body>
 </html>
